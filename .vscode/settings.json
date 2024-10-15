@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "*.page-template": "vue",
+    "*.layout-template": "vue",
+    "*.vue": "vue",
+    "*.rpgmvp": "code-text-binary",
+    "array": "cpp",
+    "string": "cpp",
+    "string_view": "cpp"
+  }
+}
