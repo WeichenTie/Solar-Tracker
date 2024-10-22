@@ -7,13 +7,13 @@ public:
     Servo(int pwmPin, int channel) : m_PWMPin(pwmPin), m_Channel(channel)
     {
         ledcSetup(m_Channel, 400, 16);
-        ledcAttachPin(pwmPin, 0);
+        ledcAttachPin(m_PWMPin, m_Channel);
     };
     // Sets the speed between -1 to 1;
     void setSpeed(float value)
     {
         uint16_t output = static_cast<uint16_t>(Helpers::remap(-1.0f, 1.0f, MIN_PWM, MAX_PWM, value));
-        ledcWrite(0, output);
+        ledcWrite(m_Channel, output);
     }
 
 private:
