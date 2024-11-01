@@ -1,8 +1,8 @@
+#pragma once
+
 #include <esp32-hal.h>
 #include <string.h>
 #include "Arduino.h"
-
-
 
 class LightSensor
 {

@@ -1,6 +1,9 @@
+#pragma once
+
 #include <esp32-hal-ledc.h>
 #include "Arduino.h"
 #include "Helpers.hpp"
+
 class Servo
 {
 public:
