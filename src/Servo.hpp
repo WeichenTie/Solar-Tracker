@@ -9,9 +9,10 @@ public:
         ledcSetup(m_Channel, 400, 16);
         ledcAttachPin(m_PWMPin, m_Channel);
     };
-    // Sets the speed between -1 to 1;
+    // Sets the speed of the servo
     void setSpeed(float value)
     {
+        value = constrain(value, -0.99, 0.99);
         uint16_t output = static_cast<uint16_t>(Helpers::remap(-1.0f, 1.0f, MIN_PWM, MAX_PWM, value));
         ledcWrite(m_Channel, output);
     }
@@ -19,7 +20,8 @@ public:
 private:
     const int m_PWMPin;
     const int m_Channel;
-    const static int MAX_PWM = 60030;
-    const static int MIN_PWM = 18612;
-    const static int STOP_PWM = 39321;
+    // PWM tunings for FS90 servo @ 400hz + 16 bits resolution
+    const static uint16_t MAX_PWM = 60030;
+    const static uint16_t MIN_PWM = 18612;
+    const static uint16_t STOP_PWM = 39321;
 };
