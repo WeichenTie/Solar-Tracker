@@ -19,6 +19,7 @@ void setup()
   Serial.begin(115200);
   delay(1000);
   trSensor.setMultipliers({0.85f, 0.0f, 0.0f, 0.0f}); // Set multipliers for compensation 
+  // Aim to have 50% for top/bottom & right/left values
   baseController.zeroAndSetTarget(0.5f, 0.0f);
   wristController.zeroAndSetTarget(0.5f, 0.0f);
 }
